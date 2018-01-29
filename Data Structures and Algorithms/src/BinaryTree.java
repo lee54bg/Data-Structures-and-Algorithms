@@ -1,8 +1,35 @@
+import java.awt.event.FocusAdapter;
 
 public class BinaryTree {
+	public static void main(String args[]) {
+		BinaryTree tree = new BinaryTree();
+		
+		tree.addNode(8);
+		tree.addNode(4);
+		tree.addNode(6);
+		
+		tree.inOrderTraversal(tree.getRoot());
+	}
+	
 	private BinaryTreeNode root;
 	
-	public void addNode(T data) {
+	public BinaryTreeNode getRoot() {
+		return root;
+	}
+	
+	public void remove(int data) {
+		
+		BinaryTreeNode focusNode = root;
+		BinaryTreeNode parent = root;
+		
+		boolean isLeftChild;
+		
+		while(focusNode.getData() != data) {
+			
+		}
+	}	
+
+	public void addNode(int data) {
 		BinaryTreeNode newNode = new BinaryTreeNode(data);
 		
 		if(root == null)
@@ -30,6 +57,16 @@ public class BinaryTree {
 					}
 				}	
 			}
+		}		
+	} // End of addNode
+	
+	public void inOrderTraversal(BinaryTreeNode focusNode) {
+		if(focusNode != null) {
+			inOrderTraversal(focusNode.getLeftChild());
+			
+			System.out.println(focusNode.getData());
+			
+			inOrderTraversal(focusNode.getRightChild());
 		}		
 	}
 }
